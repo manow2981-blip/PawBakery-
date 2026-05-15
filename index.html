@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PawBakery Premium</title>
+<title>PawBakery | Healthy Treats for Happy Pets</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -15,54 +15,55 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Prompt',sans-serif;
+    font-family:'Poppins',sans-serif;
     scroll-behavior:smooth;
 }
 
 body{
-    background:#fff7f5;
-    color:#444;
-    transition:0.4s;
-}
-
-/* DARK MODE */
-
-body.dark{
-    background:#111;
-    color:white;
-}
-
-body.dark nav,
-body.dark .card,
-body.dark .review-card,
-body.dark footer{
-    background:#1e1e1e;
-    color:white;
+    background:#fff8f7;
+    color:#333;
+    overflow-x:hidden;
 }
 
 /* NAVBAR */
 
 nav{
-    position:sticky;
+    width:100%;
+    position:fixed;
     top:0;
-    z-index:999;
-    background:white;
-    padding:18px 8%;
+    left:0;
+    z-index:1000;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+    padding:18px 8%;
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(10px);
+    box-shadow:0 2px 15px rgba(0,0,0,0.08);
 }
 
 .logo{
-    font-size:32px;
-    font-weight:700;
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo img{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.logo h2{
     color:#ff6f91;
+    font-size:32px;
 }
 
 nav ul{
     display:flex;
-    gap:25px;
+    gap:28px;
     list-style:none;
 }
 
@@ -77,15 +78,6 @@ nav ul li a:hover{
     color:#ff6f91;
 }
 
-.dark-btn{
-    border:none;
-    background:#ff6f91;
-    color:white;
-    padding:10px 15px;
-    border-radius:30px;
-    cursor:pointer;
-}
-
 /* HERO */
 
 .hero{
@@ -93,133 +85,202 @@ nav ul li a:hover{
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:50px;
-    padding:80px 8%;
-    background:linear-gradient(135deg,#ffe0e9,#fff7f5);
+    gap:60px;
     flex-wrap:wrap;
+    padding:140px 8% 80px;
+    background:
+    linear-gradient(rgba(255,248,247,0.9),rgba(255,248,247,0.9)),
+    url('https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1600&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
 }
 
 .hero-text{
     flex:1;
+    min-width:300px;
     animation:fadeUp 1s ease;
 }
 
 .hero-text h1{
-    font-size:65px;
-    line-height:1.2;
+    font-size:72px;
+    line-height:1.1;
     color:#ff6f91;
 }
 
 .hero-text p{
     margin:25px 0;
     font-size:20px;
+    max-width:600px;
 }
 
-.hero img{
-    width:520px;
-    max-width:100%;
-    border-radius:25px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.12);
-    animation:float 4s ease-in-out infinite;
+.hero-btns{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
 }
 
 .btn{
-    display:inline-block;
     padding:14px 30px;
-    background:#ff6f91;
-    color:white;
-    text-decoration:none;
     border-radius:40px;
+    text-decoration:none;
+    font-weight:600;
     transition:0.3s;
 }
 
-.btn:hover{
-    transform:translateY(-3px);
-    background:#ff4d7e;
+.primary-btn{
+    background:#ff6f91;
+    color:white;
+}
+
+.primary-btn:hover{
+    background:#ff4d7a;
+    transform:translateY(-4px);
+}
+
+.secondary-btn{
+    border:2px solid #ff6f91;
+    color:#ff6f91;
+}
+
+.secondary-btn:hover{
+    background:#ff6f91;
+    color:white;
+}
+
+.hero-image{
+    width:420px;
+    background:white;
+    border-radius:30px;
+    padding:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.12);
+    animation:float 4s ease-in-out infinite;
+}
+
+.hero-image img{
+    width:100%;
+    border-radius:25px;
 }
 
 /* SECTION */
 
 section{
-    padding:90px 8%;
+    padding:100px 8%;
 }
 
 .section-title{
     text-align:center;
-    font-size:42px;
-    margin-bottom:50px;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:46px;
     color:#ff6f91;
 }
 
-/* CARDS */
+.section-title p{
+    margin-top:10px;
+    color:#777;
+}
 
-.cards{
+/* PRODUCTS */
+
+.services{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
     gap:25px;
 }
 
-.card{
+.service-card{
     background:white;
-    border-radius:20px;
+    border-radius:25px;
     overflow:hidden;
     box-shadow:0 5px 18px rgba(0,0,0,0.08);
     transition:0.4s;
 }
 
-.card:hover{
+.service-card:hover{
     transform:translateY(-10px);
 }
 
-.card img{
+.service-card img{
     width:100%;
-    height:250px;
+    height:260px;
     object-fit:cover;
 }
 
-.card-content{
-    padding:20px;
+.service-content{
+    padding:22px;
 }
 
-.card-content h3{
+.service-content h3{
     color:#ff6f91;
     margin-bottom:10px;
 }
 
 .price{
-    font-size:22px;
+    font-size:24px;
     font-weight:bold;
-    color:#ff4d7e;
-    margin:10px 0;
+    color:#ff4d7a;
+    margin:15px 0;
 }
 
-.buy-btn{
+.order-btn{
     width:100%;
     border:none;
-    padding:12px;
-    border-radius:30px;
     background:#ff6f91;
     color:white;
+    padding:12px;
+    border-radius:30px;
     cursor:pointer;
     transition:0.3s;
 }
 
-.buy-btn:hover{
-    background:#ff4d7e;
+.order-btn:hover{
+    background:#ff4d7a;
 }
 
-/* AI SECTION */
+/* ABOUT */
 
-.ai-box{
-    background:white;
-    border-radius:25px;
-    padding:35px;
+.about-box{
+    background:#ffe8ee;
+    border-radius:35px;
+    padding:50px;
+    text-align:center;
+    line-height:1.8;
     box-shadow:0 5px 18px rgba(0,0,0,0.08);
 }
 
-.ai-box ul{
-    margin-top:20px;
+/* AI */
+
+.ai-section{
+    display:flex;
+    align-items:center;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+.ai-image{
+    flex:1;
+}
+
+.ai-image img{
+    width:100%;
+    border-radius:30px;
+}
+
+.ai-text{
+    flex:1;
+}
+
+.ai-text h2{
+    color:#ff6f91;
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.ai-text ul{
     margin-left:20px;
+    line-height:2;
 }
 
 /* GALLERY */
@@ -232,7 +293,9 @@ section{
 
 .gallery img{
     width:100%;
-    border-radius:20px;
+    height:280px;
+    object-fit:cover;
+    border-radius:25px;
     transition:0.4s;
 }
 
@@ -242,7 +305,7 @@ section{
 
 /* REVIEW */
 
-.review-container{
+.reviews{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:25px;
@@ -250,13 +313,14 @@ section{
 
 .review-card{
     background:white;
-    padding:25px;
-    border-radius:20px;
+    padding:30px;
+    border-radius:25px;
     box-shadow:0 5px 18px rgba(0,0,0,0.08);
 }
 
 .review-card h4{
     color:#ff6f91;
+    margin-bottom:10px;
 }
 
 /* CONTACT */
@@ -273,18 +337,17 @@ section{
 /* FOOTER */
 
 footer{
-    background:#ffb6c1;
+    background:#ff6f91;
     color:white;
     text-align:center;
-    padding:30px;
-    margin-top:60px;
+    padding:60px 8%;
+}
+
+footer h2{
+    margin-bottom:10px;
 }
 
 /* ANIMATION */
-
-.fade{
-    animation:fadeUp 1s ease;
-}
 
 @keyframes fadeUp{
 
@@ -335,7 +398,11 @@ nav ul{
 }
 
 .hero-text h1{
-    font-size:42px;
+    font-size:46px;
+}
+
+.hero-btns{
+    justify-content:center;
 }
 
 }
@@ -349,42 +416,64 @@ nav ul{
 
 <nav>
 
-<div class="logo">PawBakery 🐾</div>
+<div class="logo">
+
+<img src="32F37175-26F0-4C93-B606-3EFDC2A7F61D.jpeg">
+
+<h2>PawBakery</h2>
+
+</div>
 
 <ul>
-<li><a href="#about">เกี่ยวกับ</a></li>
-<li><a href="#menu">เมนู</a></li>
+
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#products">Products</a></li>
 <li><a href="#ai">AI</a></li>
 <li><a href="#gallery">Gallery</a></li>
-<li><a href="#review">Reviews</a></li>
+<li><a href="#reviews">Reviews</a></li>
 <li><a href="#contact">Contact</a></li>
-</ul>
 
-<button class="dark-btn" onclick="darkMode()">🌙</button>
+</ul>
 
 </nav>
 
 <!-- HERO -->
 
-<section class="hero">
+<section class="hero" id="home">
 
-<div class="hero-text fade">
+<div class="hero-text">
 
 <h1>
-ขนมอร่อย <br>
-เพื่อสัตว์เลี้ยงสุดรัก
+ขนมเพื่อสุขภาพ <br>
+สำหรับสัตว์เลี้ยงแสนสุข
 </h1>
 
 <p>
-ร้านเบเกอรี่สำหรับสัตว์เลี้ยง
-ปลอดภัย ไม่มีน้ำตาล และดีต่อสุขภาพ
+เบเกอรี่ระดับพรีเมียมสำหรับสัตว์เลี้ยง สุนัขและแมว
+เค้ก คุกกี้ และขนมขบเคี้ยวทำเองสดใหม่
+ทำจากวัตถุดิบที่ดีต่อสุขภาพและด้วยความรักอย่างเต็มเปี่ยม
 </p>
 
-<a href="#menu" class="btn">ดูเมนูสินค้า</a>
+<div class="hero-btns">
+
+<a href="#products" class="btn primary-btn">
+Shop Now
+</a>
+
+<a href="#about" class="btn secondary-btn">
+Learn More
+</a>
 
 </div>
 
-<img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+<div class="hero-image">
+
+<img src="32F37175-26F0-4C93-B606-3EFDC2A7F61D.jpeg">
+
+</div>
 
 </section>
 
@@ -392,15 +481,20 @@ nav ul{
 
 <section id="about">
 
-<h2 class="section-title fade">เกี่ยวกับร้าน</h2>
+<div class="section-title">
 
-<div class="ai-box fade">
+<h2>About PawBakery</h2>
+
+<p>เบเกอรี่โฮมเมดที่ทำขึ้นเพื่อเพื่อนขนฟูของคุณ</p>
+
+</div>
+
+<div class="about-box">
 
 <p>
-PawBakery คือร้านเบเกอรี่สำหรับสัตว์เลี้ยง
-ที่เน้นสุขภาพ ความปลอดภัย และความน่ารัก
-ทุกเมนูทำจากวัตถุดิบคุณภาพสูง
-ไม่มีน้ำตาลและไม่มีสารอันตราย
+PawBakery คือแบรนด์เบเกอรี่ระดับพรีเมียมสำหรับสัตว์เลี้ยง
+เราเชี่ยวชาญในการทำเค้ก คุกกี้ และขนมขบเคี้ยวเพื่อสุขภาพสำหรับสุนัขและแมว โดยใช้วัตถุดิบคุณภาพสูง
+ปราศจากสารเติมแต่งที่เป็นอันตรายและไม่มีน้ำตาล
 </p>
 
 </div>
@@ -409,61 +503,113 @@ PawBakery คือร้านเบเกอรี่สำหรับสั�
 
 <!-- PRODUCTS -->
 
-<section id="menu">
+<section id="products">
 
-<h2 class="section-title fade">เมนูยอดนิยม</h2>
+<div class="section-title">
 
-<div class="cards">
+<h2>สินค้าขายดี</h2>
 
-<div class="card fade">
+<p>ขนมโฮมเมดเพื่อสุขภาพสำหรับสัตว์เลี้ยง</p>
+
+</div>
+
+<div class="services">
+
+<!-- PRODUCT 1 -->
+
+<div class="service-card">
 
 <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?q=80&w=1200&auto=format&fit=crop">
 
-<div class="card-content">
+<div class="service-content">
 
-<h3>Dog Birthday Cake</h3>
+<h3>เค้กวันเกิดสัตว์เลี้ยง</h3>
 
-<p>เค้กวันเกิดสำหรับน้องหมา</p>
-
-<div class="price">฿299</div>
-
-<button class="buy-btn">สั่งซื้อ</button>
-
-</div>
-
-</div>
-
-<div class="card fade">
-
-<img src="https://images.unsplash.com/photo-1583511655826-05700442b31b?q=80&w=1200&auto=format&fit=crop">
-
-<div class="card-content">
-
-<h3>Pet Cookies</h3>
-
-<p>คุกกี้สุขภาพสำหรับสัตว์เลี้ยง</p>
+<p>
+เค้กวันเกิดเพื่อสุขภาพ
+สำหรับสุนัขและแมว
+</p>
 
 <div class="price">฿149</div>
 
-<button class="buy-btn">สั่งซื้อ</button>
+<button class="order-btn">
+Order Now
+</button>
 
 </div>
 
 </div>
 
-<div class="card fade">
+<!-- PRODUCT 2 -->
 
-<img src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?q=80&w=1200&auto=format&fit=crop">
+<div class="service-card">
 
-<div class="card-content">
+<img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1200&auto=format&fit=crop">
 
-<h3>Cat Treats</h3>
+<div class="service-content">
 
-<p>ขนมแมวสูตรโปรตีนสูง</p>
+<h3>ชุดไส้กรอกพรีเมียม</h3>
 
-<div class="price">฿129</div>
+<p>
+ขนมไส้กรอกเพื่อสุขภาพ
+ทำขึ้นเป็นพิเศษสำหรับสัตว์เลี้ยง
+</p>
 
-<button class="buy-btn">สั่งซื้อ</button>
+<div class="price">฿249</div>
+
+<button class="order-btn">
+Order Now
+</button>
+
+</div>
+
+</div>
+
+<!-- PRODUCT 3 -->
+
+<div class="service-card">
+
+<img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=1200&auto=format&fit=crop">
+
+<div class="service-content">
+
+<h3>กล่องขนมสัตว์เลี้ยง</h3>
+
+<p>
+กล่องขนมสุดน่ารัก
+ดีต่อสุขภาพและอร่อย
+</p>
+
+<div class="price">฿249</div>
+
+<button class="order-btn">
+Order Now
+</button>
+
+</div>
+
+</div>
+
+<!-- PRODUCT 4 -->
+
+<div class="service-card">
+
+<img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?q=80&w=1200&auto=format&fit=crop">
+
+<div class="service-content">
+
+<h3>คุกกี้เพื่อสุขภาพสำหรับสัตว์เลี้ยง</h3>
+
+<p>
+คุกกี้โฮมเมดกรุบกรอบ
+ด้วยส่วนผสมที่ดีต่อสุขภาพ
+</p>
+
+<div class="price">฿149</div>
+
+<button class="order-btn">
+Order Now
+</button>
 
 </div>
 
@@ -477,29 +623,45 @@ PawBakery คือร้านเบเกอรี่สำหรับสั�
 
 <section id="ai">
 
-<h2 class="section-title fade">Generative AI</h2>
+<div class="section-title">
 
-<div class="ai-box fade">
+<h2>ปัญญาประดิษฐ์เชิงสร้างสรรค์สำหรับธุรกิจ</h2>
 
-<h3>AI ช่วยธุรกิจอย่างไร?</h3>
+<p>การใช้ AI เพื่อพัฒนาการตลาดและการสร้างแบรนด์</p>
+
+</div>
+
+<div class="ai-section">
+
+<div class="ai-image">
+
+<img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1200&auto=format&fit=crop">
+
+</div>
+
+<div class="ai-text">
+
+<h2>คุณสมบัติของ AI</h2>
 
 <ul>
 
-<li>สร้าง Caption Social Media</li>
-<li>สร้างภาพโฆษณา</li>
+<li>สร้างแคปชั่นสำหรับโซเชียลมีเดีย</li>
+<li>สร้างโฆษณาผลิตภัณฑ์</li>
 <li>วิเคราะห์พฤติกรรมลูกค้า</li>
-<li>ช่วยทำ Branding</li>
-<li>ช่วยออกแบบ Landing Page</li>
+<li>สร้างแผนการตลาด</li>
+<li>ปรับปรุงเนื้อหาเว็บไซต์</li>
 
 </ul>
 
 <br>
 
-<h3>ตัวอย่าง Prompt</h3>
-
 <p>
-“ช่วยเขียนแคปชันโปรโมทเค้กวันเกิดสำหรับสุนัขให้น่ารัก”
+ตัวอย่างคำสั่ง:
+“สร้างแคปชั่นน่ารักๆ สำหรับ Instagram
+เพื่อโปรโมทเค้กวันเกิดสุนัข”
 </p>
+
+</div>
 
 </div>
 
@@ -509,54 +671,66 @@ PawBakery คือร้านเบเกอรี่สำหรับสั�
 
 <section id="gallery">
 
-<h2 class="section-title fade">Gallery</h2>
+<div class="section-title">
+
+<h2>Gallery</h2>
+
+<p>ช่วงเวลาแห่งความสุขจากลูกค้าของเรา</p>
+
+</div>
 
 <div class="gallery">
 
-<img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=1200&auto=format&fit=crop">
 
 <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?q=80&w=1200&auto=format&fit=crop">
 
-<img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1200&auto=format&fit=crop">
 
 </div>
 
 </section>
 
-<!-- REVIEW -->
+<!-- REVIEWS -->
 
-<section id="review">
+<section id="reviews">
 
-<h2 class="section-title fade">Customer Reviews</h2>
+<div class="section-title">
 
-<div class="review-container">
+<h2>รีวิวจากลูกค้า</h2>
 
-<div class="review-card fade">
+<p>สิ่งที่ลูกค้าของเราพูด</p>
 
-<h4>คุณมิ้นท์ ⭐⭐⭐⭐⭐</h4>
+</div>
+
+<div class="reviews">
+
+<div class="review-card">
+
+<h4>Mint ⭐⭐⭐⭐⭐</h4>
 
 <p>
-“น้องหมาชอบมาก เค้กน่ารักและปลอดภัย”
+“สุนัขของฉันชอบเค้กวันเกิดมาก ๆ เลย!!”
 </p>
 
 </div>
 
-<div class="review-card fade">
+<div class="review-card">
 
-<h4>คุณแบงค์ ⭐⭐⭐⭐⭐</h4>
+<h4>Bank ⭐⭐⭐⭐⭐</h4>
 
 <p>
-“เว็บสวย ดูพรีเมียม และสั่งง่าย”
+“เว็บไซต์ดูดีมีระดับและใช้งานง่าย”
 </p>
 
 </div>
 
-<div class="review-card fade">
+<div class="review-card">
 
-<h4>คุณน้ำ ⭐⭐⭐⭐⭐</h4>
+<h4>Nam ⭐⭐⭐⭐⭐</h4>
 
 <p>
-“ขนมคุณภาพดีมาก AI Marketing ดูทันสมัย”
+“ขนมเพื่อสุขภาพและการสร้างแบรนด์ที่น่าทึ่ง”
 </p>
 
 </div>
@@ -569,11 +743,17 @@ PawBakery คือร้านเบเกอรี่สำหรับสั�
 
 <section id="contact" class="contact">
 
-<h2 class="section-title fade">Contact</h2>
+<div class="section-title">
+
+<h2>ติดต่อเรา</h2>
+
+<p>ติดตามข่าวสารจาก PawBakery ได้เลย</p>
+
+</div>
 
 <p>Instagram: @pawbakery</p>
 <p>Facebook: PawBakery Thailand</p>
-<p>LINE: @pawbakery</p>
+<p>Line: @pawbakery</p>
 <p>Email: pawbakery@gmail.com</p>
 
 </section>
@@ -582,23 +762,17 @@ PawBakery คือร้านเบเกอรี่สำหรับสั�
 
 <footer>
 
+<h2>PawBakery 🐾</h2>
+
+<p>Healthy Treats for Happy Pets</p>
+
+<br>
+
 <p>
 © 2026 PawBakery Premium Website
 </p>
 
 </footer>
-
-<!-- JS -->
-
-<script>
-
-function darkMode(){
-
-    document.body.classList.toggle("dark");
-
-}
-
-</script>
 
 </body>
 </html>
