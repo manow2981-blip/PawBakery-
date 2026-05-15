@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PawBakery Premium</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Prompt',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#fff7f5;
+    color:#444;
+    transition:0.4s;
+}
+
+/* DARK MODE */
+
+body.dark{
+    background:#111;
+    color:white;
+}
+
+body.dark nav,
+body.dark .card,
+body.dark .review-card,
+body.dark footer{
+    background:#1e1e1e;
+    color:white;
+}
+
+/* NAVBAR */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:999;
+    background:white;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+.logo{
+    font-size:32px;
+    font-weight:700;
+    color:#ff6f91;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#444;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#ff6f91;
+}
+
+.dark-btn{
+    border:none;
+    background:#ff6f91;
+    color:white;
+    padding:10px 15px;
+    border-radius:30px;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:50px;
+    padding:80px 8%;
+    background:linear-gradient(135deg,#ffe0e9,#fff7f5);
+    flex-wrap:wrap;
+}
+
+.hero-text{
+    flex:1;
+    animation:fadeUp 1s ease;
+}
+
+.hero-text h1{
+    font-size:65px;
+    line-height:1.2;
+    color:#ff6f91;
+}
+
+.hero-text p{
+    margin:25px 0;
+    font-size:20px;
+}
+
+.hero img{
+    width:520px;
+    max-width:100%;
+    border-radius:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.12);
+    animation:float 4s ease-in-out infinite;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 30px;
+    background:#ff6f91;
+    color:white;
+    text-decoration:none;
+    border-radius:40px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    background:#ff4d7e;
+}
+
+/* SECTION */
+
+section{
+    padding:90px 8%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:50px;
+    color:#ff6f91;
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 5px 18px rgba(0,0,0,0.08);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.card-content h3{
+    color:#ff6f91;
+    margin-bottom:10px;
+}
+
+.price{
+    font-size:22px;
+    font-weight:bold;
+    color:#ff4d7e;
+    margin:10px 0;
+}
+
+.buy-btn{
+    width:100%;
+    border:none;
+    padding:12px;
+    border-radius:30px;
+    background:#ff6f91;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.buy-btn:hover{
+    background:#ff4d7e;
+}
+
+/* AI SECTION */
+
+.ai-box{
+    background:white;
+    border-radius:25px;
+    padding:35px;
+    box-shadow:0 5px 18px rgba(0,0,0,0.08);
+}
+
+.ai-box ul{
+    margin-top:20px;
+    margin-left:20px;
+}
+
+/* GALLERY */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:20px;
+    transition:0.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+/* REVIEW */
+
+.review-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.review-card{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 5px 18px rgba(0,0,0,0.08);
+}
+
+.review-card h4{
+    color:#ff6f91;
+}
+
+/* CONTACT */
+
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    margin:10px 0;
+    font-size:18px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#ffb6c1;
+    color:white;
+    text-align:center;
+    padding:30px;
+    margin-top:60px;
+}
+
+/* ANIMATION */
+
+.fade{
+    animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+nav{
+    flex-direction:column;
+    gap:15px;
+}
+
+nav ul{
+    flex-direction:column;
+    text-align:center;
+}
+
+.hero{
+    text-align:center;
+}
+
+.hero-text h1{
+    font-size:42px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">PawBakery 🐾</div>
+
+<ul>
+<li><a href="#about">เกี่ยวกับ</a></li>
+<li><a href="#menu">เมนู</a></li>
+<li><a href="#ai">AI</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#review">Reviews</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+<button class="dark-btn" onclick="darkMode()">🌙</button>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-text fade">
+
+<h1>
+ขนมอร่อย <br>
+เพื่อสัตว์เลี้ยงสุดรัก
+</h1>
+
+<p>
+ร้านเบเกอรี่สำหรับสัตว์เลี้ยง
+ปลอดภัย ไม่มีน้ำตาล และดีต่อสุขภาพ
+</p>
+
+<a href="#menu" class="btn">ดูเมนูสินค้า</a>
+
+</div>
+
+<img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1200&auto=format&fit=crop">
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2 class="section-title fade">เกี่ยวกับร้าน</h2>
+
+<div class="ai-box fade">
+
+<p>
+PawBakery คือร้านเบเกอรี่สำหรับสัตว์เลี้ยง
+ที่เน้นสุขภาพ ความปลอดภัย และความน่ารัก
+ทุกเมนูทำจากวัตถุดิบคุณภาพสูง
+ไม่มีน้ำตาลและไม่มีสารอันตราย
+</p>
+
+</div>
+
+</section>
+
+<!-- PRODUCTS -->
+
+<section id="menu">
+
+<h2 class="section-title fade">เมนูยอดนิยม</h2>
+
+<div class="cards">
+
+<div class="card fade">
+
+<img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+
+<h3>Dog Birthday Cake</h3>
+
+<p>เค้กวันเกิดสำหรับน้องหมา</p>
+
+<div class="price">฿299</div>
+
+<button class="buy-btn">สั่งซื้อ</button>
+
+</div>
+
+</div>
+
+<div class="card fade">
+
+<img src="https://images.unsplash.com/photo-1583511655826-05700442b31b?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+
+<h3>Pet Cookies</h3>
+
+<p>คุกกี้สุขภาพสำหรับสัตว์เลี้ยง</p>
+
+<div class="price">฿149</div>
+
+<button class="buy-btn">สั่งซื้อ</button>
+
+</div>
+
+</div>
+
+<div class="card fade">
+
+<img src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+
+<h3>Cat Treats</h3>
+
+<p>ขนมแมวสูตรโปรตีนสูง</p>
+
+<div class="price">฿129</div>
+
+<button class="buy-btn">สั่งซื้อ</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- AI -->
+
+<section id="ai">
+
+<h2 class="section-title fade">Generative AI</h2>
+
+<div class="ai-box fade">
+
+<h3>AI ช่วยธุรกิจอย่างไร?</h3>
+
+<ul>
+
+<li>สร้าง Caption Social Media</li>
+<li>สร้างภาพโฆษณา</li>
+<li>วิเคราะห์พฤติกรรมลูกค้า</li>
+<li>ช่วยทำ Branding</li>
+<li>ช่วยออกแบบ Landing Page</li>
+
+</ul>
+
+<br>
+
+<h3>ตัวอย่าง Prompt</h3>
+
+<p>
+“ช่วยเขียนแคปชันโปรโมทเค้กวันเกิดสำหรับสุนัขให้น่ารัก”
+</p>
+
+</div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+<h2 class="section-title fade">Gallery</h2>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=1200&auto=format&fit=crop">
+
+</div>
+
+</section>
+
+<!-- REVIEW -->
+
+<section id="review">
+
+<h2 class="section-title fade">Customer Reviews</h2>
+
+<div class="review-container">
+
+<div class="review-card fade">
+
+<h4>คุณมิ้นท์ ⭐⭐⭐⭐⭐</h4>
+
+<p>
+“น้องหมาชอบมาก เค้กน่ารักและปลอดภัย”
+</p>
+
+</div>
+
+<div class="review-card fade">
+
+<h4>คุณแบงค์ ⭐⭐⭐⭐⭐</h4>
+
+<p>
+“เว็บสวย ดูพรีเมียม และสั่งง่าย”
+</p>
+
+</div>
+
+<div class="review-card fade">
+
+<h4>คุณน้ำ ⭐⭐⭐⭐⭐</h4>
+
+<p>
+“ขนมคุณภาพดีมาก AI Marketing ดูทันสมัย”
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+<h2 class="section-title fade">Contact</h2>
+
+<p>Instagram: @pawbakery</p>
+<p>Facebook: PawBakery Thailand</p>
+<p>LINE: @pawbakery</p>
+<p>Email: pawbakery@gmail.com</p>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+© 2026 PawBakery Premium Website
+</p>
+
+</footer>
+
+<!-- JS -->
+
+<script>
+
+function darkMode(){
+
+    document.body.classList.toggle("dark");
+
+}
+
+</script>
+
+</body>
+</html>
